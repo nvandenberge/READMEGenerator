@@ -32,7 +32,7 @@ const questions = [
   {
     type: "input",
     message: "List any collaborators, with links to their GitHub profiles: ",
-    name: "contributing",
+    name: "credits",
   },
   {
     type: "input",
@@ -53,14 +53,20 @@ const writeToFile = ({
   installation,
   usage,
   license,
-  contributing,
+  credits,
   tests,
 }) =>
-  `# Title
+ `# Title
 ${title}
 
 ## Description
 ${description}
+
+## Table of Contents
+* [Installation](#installation)
+* [Usage](#usage)
+* [Credits](#credits)
+* [License](#license)
 
 ## Installation
 ${installation}
@@ -71,8 +77,8 @@ ${usage}
 ## License
 This application is covered under the ${license} license.
 
-## Contributing
-${contributing}
+## Credits
+${credits}
 
 ## Tests
 ${tests}
