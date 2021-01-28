@@ -20,7 +20,7 @@ const questions = [
   },
   {
     type: "input",
-    message: "Provide instructions and examples for use: ",
+    message: "Provide instructions and examples of usage: ",
     name: "usage",
   },
   {
@@ -42,7 +42,7 @@ const questions = [
 ];
 
 inquirer.prompt(questions).then((response) => {
-  fs.writeFile("READYOU.md", writeToFile(response), (err) =>
+  fs.writeFile("README.md", writeToFile(response), (err) =>
     err ? console.log(err) : console.log("Success!")
   );
 });
@@ -58,6 +58,8 @@ const writeToFile = ({
 }) =>
  `# Title
 ${title}
+
+![badge](https://img.shields.io/static/v1?label=license&message=${license}&color=green)
 
 ## Description
 ${description}
