@@ -39,6 +39,16 @@ const questions = [
     message: "If tests are available, provide an example on how to run them: ",
     name: "tests",
   },
+  {
+    type: "input",
+    message: "Enter your GitHub username: ",
+    name: "questions",
+  },
+  {
+    type: "input",
+    message: "Enter your email address: ",
+    name: "email",
+  },
 ];
 
 inquirer.prompt(questions).then((response) => {
@@ -55,6 +65,8 @@ const writeToFile = ({
   license,
   credits,
   tests,
+  questions,
+  email
 }) =>
  `# Title
 ${title}
@@ -67,8 +79,10 @@ ${description}
 ## Table of Contents
 * [Installation](#installation)
 * [Usage](#usage)
-* [Credits](#credits)
 * [License](#license)
+* [Credits](#credits)
+* [Tests](#tests)
+* [Questions](#questions)
 
 ## Installation
 ${installation}
@@ -84,5 +98,9 @@ ${credits}
 
 ## Tests
 ${tests}
+
+## Questions
+- [GitHub](https://github.com/${questions})
+- Email any questions to ${email}
 `
 ;
