@@ -1,17 +1,26 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 
+const confirmAnswers = (input) => {
+  if (!input) {
+    return 'Please provide a response'
+  }
+  return true;
+}
+
 // Array of questions for user input
 const questions = [
   {
     type: "name",
     message: "What is the title of this project? ",
     name: "title",
+    validate: confirmAnswers,
   },
   {
     type: "input",
     message: "Enter a description for this project: ",
     name: "description",
+    validate: confirmAnswers,
   },
   {
     type: "input",
@@ -42,7 +51,8 @@ const questions = [
   {
     type: "input",
     message: "Enter your GitHub username: ",
-    name: "questions",
+    name: "github",
+
   },
   {
     type: "input",
@@ -65,7 +75,7 @@ const writeToFile = ({
   license,
   credits,
   tests,
-  questions,
+  github,
   email
 }) =>
  `# Title
@@ -100,7 +110,7 @@ ${credits}
 ${tests}
 
 ## Questions
-- [GitHub](https://github.com/${questions})
+- [GitHub](https://github.com/${github})
 - Email any questions to ${email}
 `
 ;
