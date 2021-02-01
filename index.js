@@ -3,10 +3,10 @@ const fs = require("fs");
 
 const confirmAnswers = (input) => {
   if (!input) {
-    return 'Please provide a response'
+    return "Please provide a response";
   }
   return true;
-}
+};
 
 // Array of questions for user input
 const questions = [
@@ -52,7 +52,6 @@ const questions = [
     type: "input",
     message: "Enter your GitHub username: ",
     name: "github",
-
   },
   {
     type: "input",
@@ -61,11 +60,12 @@ const questions = [
   },
 ];
 
-inquirer.prompt(questions).then((response) => {
-  fs.writeFile("README.md", writeToFile(response), (err) =>
-    err ? console.log(err) : console.log("Success!")
-  );
-});
+const init = () =>
+  inquirer.prompt(questions).then((response) => {
+    fs.writeFile("README.md", writeToFile(response), (err) =>
+      err ? console.log(err) : console.log("README file has been generated!")
+    );
+  });
 
 const writeToFile = ({
   title,
@@ -76,9 +76,9 @@ const writeToFile = ({
   credits,
   tests,
   github,
-  email
+  email,
 }) =>
- `# Title
+  `# Title
 ${title}
 
 ![badge](https://img.shields.io/static/v1?label=license&message=${license}&color=green)
@@ -112,5 +112,6 @@ ${tests}
 ## Questions
 - [GitHub](https://github.com/${github})
 - Email any questions to ${email}
-`
-;
+`;
+
+init();
