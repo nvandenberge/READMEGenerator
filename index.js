@@ -1,6 +1,7 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 
+// Validation for the title and description questions
 const confirmAnswers = (input) => {
   if (!input) {
     return "Please provide a response";
@@ -60,6 +61,7 @@ const questions = [
   },
 ];
 
+// Function that kicks off the app
 const init = () =>
   inquirer.prompt(questions).then((response) => {
     fs.writeFile("README.md", writeToFile(response), (err) =>
@@ -67,6 +69,7 @@ const init = () =>
     );
   });
 
+// Function that creates README from user response
 const writeToFile = ({
   title,
   description,
