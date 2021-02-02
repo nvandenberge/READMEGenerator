@@ -18,7 +18,7 @@ README generator app using node.js. Provide a response to each question and once
 Fork this repo (https://github.com/nvandenberge/READMEGenerator) and navigate to the repo folder in your terminal, then run 'node index'. 
 
 ## Usage
-https://drive.google.com/file/d/1hux8mcK0WKWrWEG2zABfHQOl702iS6VB/view
+https://drive.google.com/file/d/1omKyVCXHB5ncr0kT4W4PVdwa3q3oAs9z/view
 
 ## License
 This application is covered under the MIT license.
